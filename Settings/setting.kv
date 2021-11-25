@@ -1,0 +1,111 @@
+#: import get_color_from_hex kivy.utils.get_color_from_hex
+
+
+<UserSetting>:
+    canvas.before:
+        Color:
+            rgba: get_color_from_hex("#002863")
+        Rectangle:
+            size:self.size
+            pos: self.pos
+        Color:
+            rgba: 1,1,1,1
+        Ellipse:
+            pos: self.center_x-80, 0.7*self.height
+            size: 150 , 150
+            source: "/home/benji/Pictures/mathematician-terry-tao-001.jpg"
+            angle_start: 0
+            angle_end: 360
+    MDIconButton:
+        pos_hint:{"center_y":0.71}
+        center_x:root.center_x + 80
+        user_font_size: "20sp"
+        icon:"pencil"
+        theme_text_color:"Custom"
+        text_color:1,1,1,1
+    MDBoxLayout:
+        canvas:
+            Color:
+                rgba: 0,0,1,0.4
+            Ellipse:
+                pos: self.x-150,self.top-150
+                size: 300,300
+                angle_start:90
+                angle_end:180
+            Ellipse:
+                pos: self.right-150,self.y-150
+                size: 300,300
+                angle_start:270
+                angle_end:360
+        orientation:"vertical"
+        size_hint:1,0.55
+        pos_hint:{"x":0,"top":0.65}
+        radius:[0,25,0,25]
+        md_bg_color:1,1,1,1
+        padding:20
+        spacing: 10
+        MDRelativeLayout:
+            size_hint:1,0.2
+            MDLabel:
+                text: "Email"
+                font_size:"20sp"
+                halign:"left"
+                pos_hint:{"center_y":0.85}
+                font_name:"/home/benji/Kivymd/Frontend/Ubuntu-Regular.ttf"
+            MDBoxLayout:
+                id:email_container
+                MDLabel:
+                    id:email
+                    text: "marvelousbenji@gmail.com"
+                    font_size:"18sp"
+                    halign:"left"
+                    pos_hint:{"center_y":0.4}
+                    font_name:"/home/benji/Kivymd/Frontend/Ubuntu-Regular.ttf"
+                MDIconButton:
+                    pos_hint:{"center_y":0.38}
+                    user_font_size: "18sp"
+                    icon:"pencil"
+                    on_release:root.update_email()
+        MDRelativeLayout:
+            size_hint:1,0.2
+            MDLabel:
+                text: "Fullname"
+                font_size:"20sp"
+                halign:"left"
+                pos_hint:{"center_y":0.85}
+                font_name:"/home/benji/Kivymd/Frontend/Ubuntu-Regular.ttf"
+            MDBoxLayout:
+                id:name_container
+                MDLabel:
+                    id:name
+                    text: "Marvelous Benji"
+                    font_size:"18sp"
+                    halign:"left"
+                    pos_hint:{"center_y":0.4}
+                    font_name:"/home/benji/Kivymd/Frontend/Ubuntu-Regular.ttf"
+                MDIconButton:
+                    pos_hint:{"center_y":0.38}
+                    user_font_size: "18sp"
+                    icon:"pencil"
+                    on_release:root.update_name()
+        MDBoxLayout:
+            size_hint:1,0.6
+            MDRelativeLayout:
+                MDLabel:
+                    id:header
+                    text:"About"
+                    font_name:"/home/benji/Kivymd/Frontend/Ubuntu-Regular.ttf"
+                    font_size:"20sp"
+                    halign:"center"
+                    pos_hint:{"center_y":0.92}
+                MDLabel:
+                    id:body
+                    text:"""Hello my name is Marvelous Benji, I am the core backend engineer at Lungutech, I have been able to deploy four products to production"""
+                    font_name:"/home/benji/Kivymd/Frontend/Ubuntu-Regular.ttf"
+                    font_size:"18sp"
+                    halign:"left"
+                    top:header.center_y + 30
+            MDIconButton:
+                pos_hint:{"right":0.95}
+                user_font_size: "18sp"
+                icon:"pencil"

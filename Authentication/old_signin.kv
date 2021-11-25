@@ -1,0 +1,35 @@
+#: import get_color_from_hex kivy.utils.get_color_from_hex
+
+<OldSignin>:
+    email_field:email_field
+    fingerprint_field:fingerprint_field
+    canvas.before:
+        RoundedRectangle:
+            source:"3376592.jpg"
+            size: self.size[0], 0.4*self.size[1]
+            pos: self.x, self.top - 0.4*self.size[1]
+            radius: [0,0,20,20]
+    MDRelativeLayout:
+        orientation:"vertical"
+        size_hint: 1, 0.5
+        MDLabel:
+            text:"Welcome Back"
+            font_name:"/home/benji/Kivymd/Frontend/Ubuntu-Regular.ttf"
+            font_size:"32sp"
+            halign:"center"
+            pos_hint:{"y":0.58}
+        MDTextField:
+            id:email_field
+            mode: "rectangle"
+            size_hint_x: 0.77
+            hint_text: "Email"
+            font_name:"/home/benji/Kivymd/Frontend/Ubuntu-Regular.ttf"
+            pos_hint:{"center_x":0.5,"center_y":0.8}
+            line_color_focus: 0,0,0,1
+            hint_text_color_focus:0,0,0,1
+            text_color_focus:0,0,0,1
+        MDIconButton:
+            id: fingerprint_field
+            icon:"fingerprint"
+            pos_hint:{"center_x":0.5,"center_y":0.5}
+            user_font_size: "85sp"

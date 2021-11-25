@@ -1,0 +1,68 @@
+#: import get_color_from_hex kivy.utils.get_color_from_hex
+
+<UserProfile>:
+    MDNavigationLayout:
+        ScreenManager:
+            MDScreen:
+                MDToolbar:
+                    id: topbar
+                    left_action_items:[["menu", lambda x: nav_drawer.set_state("open")]]
+                    right_action_items:[["bell-outline"],["dots-vertical", lambda x:root.show_settings()]]
+                    md_bg_color:get_color_from_hex("#002863")
+                    top:root.top
+                    title: "Daily CheckIns"
+        MDNavigationDrawer:
+            id: nav_drawer
+            Profile:
+
+
+<Profile>:
+    orientation:"vertical"
+    MDScreen:
+        size_hint:1, 0.3
+        md_bg_color:get_color_from_hex("#002863")
+        canvas:
+            Color:
+                rgba:1,1,1,1
+            Ellipse:
+                pos: self.x+10, 90
+                size: 100 , 100
+                source: "/home/benji/Pictures/mathematician-paul-erdos-001.jpg"
+                angle_start: 0
+                angle_end: 360
+        MDLabel:
+            text:"Marvelous Benji"
+            pos_hint:{"x":0.03,"center_y":0.33}
+            theme_text_color:"Custom"
+            text_color:1,1,1,1
+            font_size:"20sp"
+            font_name:"/home/benji/Kivymd/Frontend/Ubuntu-Regular.ttf"
+        MDLabel:
+            text:"marvelousbenji@gmail.com"
+            #halign:"center"
+            pos_hint:{"x":0.03,"center_y":0.21}
+            theme_text_color:"Custom"
+            text_color:1,1,1,1
+            font_name:"/home/benji/Kivymd/Frontend/Ubuntu-Regular.ttf"
+    MDBoxLayout:
+        size_hint:1, 0.7
+        orientation:"vertical"
+        padding: [0,20,20,0]
+        MDList:
+            spacing:20
+            OneLineIconListItem:
+                text: "[font=Ubuntu-Regular.ttf]Attendance graph[/font]"
+
+                IconLeftWidget:
+                    icon: "chart-bell-curve-cumulative"
+            OneLineIconListItem:
+                text: "[font=Ubuntu-Regular.ttf]Performance graph[/font]"
+
+                IconLeftWidget:
+                    icon: "chart-line-variant"
+            OneLineIconListItem:
+                text: "[font=Ubuntu-Regular.ttf]Attendance history[/font]"
+
+                IconLeftWidget:
+                    icon: "history"
+        MDLabel:
